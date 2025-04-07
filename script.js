@@ -1,30 +1,56 @@
-const chat = document.getElementById("chat");
-const notify = document.getElementById("notification-sound");
+// script.js
 
-function sendMessage(content, delay = 1000) {
-  setTimeout(() => {
-    const message = document.createElement("div");
-    message.className = "message bot";
-    message.innerHTML = content;
-    chat.appendChild(message);
-    notify.play();
-    chat.scrollTop = chat.scrollHeight;
-  }, delay);
+const chat = document.getElementById('chat');
+const notificationSound = document.getElementById('notification-sound');
+
+function playSound() {
+  notificationSound.currentTime = 0;
+  notificationSound.play();
 }
 
-function renderButtons() {
-  sendMessage(`
-    <div class="options">
-      <button onclick="window.location.href='https://wa.me/5538999750635?text=Gostaria%20de%20fazer%20minha%20cota%C3%A7%C3%A3o'">
-        Enviar dados para receber minha cotação através do WhatsApp
-      </button>
-      <button onclick="window.location.href='https://wa.me/5538999750635?text=Gostaria%20de%20fazer%20minha%20cota%C3%A7%C3%A3o'">
-        Ser direcionado diretamente para um consultor
-      </button>
-    </div>
-  `, 2500);
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Dispara ao abrir a página
-sendMessage("👋 Olá! Bem-vindo(a) à UNIVERSOAGV, a proteção veicular entre as 5 maiores do Brasil, com cerca de 500 mil associados e uma das mais bem avaliadas no Reclame Aqui! 🚗💼", 1000);
-renderButtons();
+function createMessage(content, type = 'bot') {
+  const msg = document.createElement('div');
+  msg.className = `message ${type}`;
+  msg.innerHTML = content;
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+  playSound();
+}
+
+function createButton(text, onClick) {
+  const btn = document.createElement('button');
+  btn.className = 'chat-button';
+  btn.textContent = text;
+  btn.onclick = onClick;
+  return btn;
+}
+
+function clearButtons() {
+  const buttons = document.querySelectorAll('.chat-button');
+  buttons.forEach(btn => btn.remove());
+}
+
+function createInputField(placeholder, name) {
+  const input = document.createElement('input');
+  input.placeholder = placeholder;
+  input.name = name;
+  input.className = 'chat-input';
+  return input;
+}
+
+function handleCotacao() {
+  clearButtons();
+  createMessage('Vamos fazer sua cotação! Por favor, preencha os dados abaixo:');
+
+  const form = document.createElement('form');
+  form.className = 'chat-form';
+
+  const nome = createInputField('Seu nome', 'nome');
+  const cidade = createInputField('Cidade', 'cidade');
+  const numero = createInputField('Número de celular', 'numero');
+  const modelo = createInputField('Modelo exato do veículo', 'modelo');
+  const placa = createInputField('Placa', 'placa');
