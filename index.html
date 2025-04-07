@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,7 @@
 </head>
 <body>
   <div class="whatsapp-container">
+    <!-- Cabeçalho estilo WhatsApp -->
     <div class="chat-header">
       <img src="perfil.png" alt="Perfil" class="profile-pic" />
       <div class="chat-info">
@@ -16,12 +17,14 @@
       </div>
     </div>
 
-    <!-- Aqui o elemento necessário para o script.js funcionar -->
+    <!-- AQUI é onde a conversa acontece -->
     <div class="chat-body" id="chat"></div>
   </div>
 
+  <!-- Som de notificação -->
   <audio id="notification-sound" src="notify.mp3" preload="auto"></audio>
 
+  <!-- Script do chat -->
   <script src="script.js"></script>
 </body>
 </html>
