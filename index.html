@@ -1,28 +1,108 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>UNIVERSOAGV - Atendimento WhatsApp</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="whatsapp-container">
-    <div class="chat-header">
-      <img src="profile.jpg" class="profile-pic" alt="Perfil" />
-      <div class="chat-info">
-        <h2>UNIVERSOAGV</h2>
-        <p>online</p>
-      </div>
-    </div>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ece5dd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    <div id="chat" class="chat-body">
-      <!-- Mensagens aparecerão aqui -->
-    </div>
+.whatsapp-container {
+  width: 100%;
+  max-width: 400px;
+  height: 90vh;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
 
-    <audio id="notification-sound" src="notify.mp3" preload="auto"></audio>
-  </div>
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #075e54;
+  color: white;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.profile-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.chat-info h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.chat-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #cfcfcf;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #e5ddd5;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  font-size: 14px;
+  line-height: 1.4;
+  display: inline-block;
+  clear: both;
+}
+
+.message.bot {
+  background-color: #ffffff;
+  align-self: flex-start;
+  border-radius: 7px 7px 7px 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.options button,
+.chat-button {
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.options button:hover,
+.chat-button:hover {
+  background-color: #1ebd5a;
+}
+
+.chat-input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: calc(100% - 20px);
+  border-radius: 7px;
+  border: 1px solid #ccc;
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+}
