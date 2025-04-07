@@ -78,7 +78,8 @@ body {
   margin-top: 10px;
 }
 
-.options button {
+.options button,
+.chat-button {
   background-color: #25d366;
   color: white;
   border: none;
@@ -88,6 +89,13 @@ body {
   font-weight: bold;
 }
 
-.options button:hover {
+.options button:hover,
+.chat-button:hover {
   background-color: #1ebd5a;
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
