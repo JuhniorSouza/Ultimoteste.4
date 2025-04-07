@@ -3,18 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Atendimento via WhatsApp - UNIVERSOAGV</title>
+  <title>UNIVERSOAGV - Atendimento WhatsApp</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="card">
-    <img src="profile.jpg" alt="Perfil" class="profile-img"/>
-    <h1>Atendimento via WhatsApp</h1>
-    <p>Clique no botão abaixo para iniciar uma conversa no WhatsApp.</p>
-    <a href="https://wa.me/5538999750635?text=Gostaria%20de%20fazer%20minha%20cota%C3%A7%C3%A3o" target="_blank">
-      <button class="whatsapp-btn">Chamar no WhatsApp</button>
-    </a>    
-    </a>
+  <div class="whatsapp-container">
+    <div class="chat-header">
+      <img src="profile.jpg" class="profile-pic" alt="Perfil" />
+      <div class="chat-info">
+        <h2>UNIVERSOAGV</h2>
+        <p>online</p>
+      </div>
+    </div>
+
+    <div id="chat" class="chat-body">
+      <!-- Mensagens aparecerão aqui -->
+    </div>
+
+    <audio id="notification-sound" src="notify.mp3" preload="auto"></audio>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
